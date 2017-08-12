@@ -1,6 +1,6 @@
 # EventService
 
-Purpose of this application is a case stady of implementing event logging service in go. <br />
+The purpose of this application is a case study of implementing event logging service in go. <br />
 
 EventService listens for POST http requests on localhost:8080/log
 
@@ -8,23 +8,23 @@ EventService listens for POST http requests on localhost:8080/log
 
 #### Application parameters
 
-1. max_workers (defuault 20) - defines number of concurrent workers for events processing.
-2. max_queue_size (defuault 500) - muximum number of events that can be buffered in queue before processing.
-3. port (defuault 8080) - server port.
+1. max_workers (default 20) - defines a number of concurrent workers for events processing.
+2. max_queue_size (default 500) - maximum number of events that can be buffered in the queue before processing.
+3. port (default 8080) - server port.
 
 #### DB configuration
 
-EventService stores events to PostgeSQL database. <br />
-Following parameters cab be changed in Worker.go file
+EventService stores events to PostgreSQL database. <br />
+Following parameters, cab be changed in Worker.go file
 
-1. host (defuault "localhost")
-2. port (defuault 5432)
-3. user (defuault "postgres")
-4. password = (defuault "postgres")
-5. dbname   = (defuault "anoiio")
+1. host (default "localhost")
+2. port (default 5432)
+3. user (default "postgres")
+4. password = (default "postgres")
+5. dbname   = (default "anoiio")
 
 
-Requared table can be created using /db/init.sql script
+Required table can be created using /db/init.sql script
 
 ### Run
 
