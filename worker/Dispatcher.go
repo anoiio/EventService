@@ -1,7 +1,5 @@
 package worker
 
-import "fmt"
-
 // Dispatcher struct
 type Dispatcher struct {
 	workerPool chan chan LogEvent
@@ -35,9 +33,7 @@ func (d *Dispatcher) dispatch() {
 		select {
 		case event := <-d.eventQueue:
 			go func() {
-				fmt.Printf("fetching workerJobQueue\n")
 				workerEventQueue := <-d.workerPool
-				fmt.Printf("adding to workerEventQueue\n")
 				workerEventQueue <- event
 			}()
 		}

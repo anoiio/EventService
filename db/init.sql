@@ -5,6 +5,7 @@
 CREATE TABLE public.events
 (
     id SERIAL PRIMARY KEY,
+    created_timestamp timestamptz not null default current_timestamp,
     date_time date NOT NULL,
     type character varying(64) COLLATE pg_catalog."default" NOT NULL,
     transaction_id character varying(64) COLLATE pg_catalog."default" NOT NULL,
@@ -19,3 +20,5 @@ TABLESPACE pg_default;
 
 ALTER TABLE public.events
     OWNER to postgres;
+    
+    

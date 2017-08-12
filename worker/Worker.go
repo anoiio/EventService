@@ -100,7 +100,6 @@ func process(w Worker) {
 
 		select {
 		case event := <-w.eventQueue:
-			fmt.Printf("Worker got event %s payload %s\n", event.Type, event.Payload)
 			w.handleEvent(event)
 		case <-w.quitChan:
 			fmt.Printf("Worker stopping\n")

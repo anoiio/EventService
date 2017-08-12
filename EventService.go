@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -15,7 +14,6 @@ func createEvent(body []byte) (worker.LogEvent, error) {
 	var reqMap map[string]interface{}
 
 	json.Unmarshal(body, &reqMap)
-	fmt.Printf("Got request with body: %s\n", reqMap)
 
 	eventType, err := worker.ValidateEventType(reqMap[worker.TypeKey].(string))
 
