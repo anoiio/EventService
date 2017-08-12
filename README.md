@@ -28,7 +28,9 @@ Required table can be created using /db/init.sql script
 
 ### Run
 
-EventService supports 3 events types.
+To start the application: $GOPATH/bin/eventservice  <br />
+
+EventService supports 3 events types. <br />
 They can be submitted to the service by issuing HTTP POST request with the following body:
 
 1. Click
