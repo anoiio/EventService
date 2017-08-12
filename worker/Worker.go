@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"time"
 
+	// will justify later
 	_ "github.com/lib/pq"
 )
 
@@ -135,7 +136,6 @@ func (w Worker) handleClick(data map[string]interface{}) {
 	adType := data["ad_type"]
 	timeToClick := data["time_to_click"]
 	userID := data["user_id"]
-	fmt.Printf("handleClick date_time %d transaction_id %s ad_type %s time_to_click %s user_id %s\n", dateTime, transactionID, adType, timeToClick, userID)
 
 	_, err := w.db.Exec(fmt.Sprintf("INSERT INTO EVENTS (type, date_time, transaction_id, ad_type, time_to_click, user_id) VALUES ($1, $2, $3, $4, $5, $6)"),
 		Click, time.Unix(0, dateTime*int64(time.Millisecond)), transactionID, adType, timeToClick, userID)
@@ -148,7 +148,6 @@ func (w Worker) handleClick(data map[string]interface{}) {
 func (w Worker) handleCompletion(data map[string]interface{}) {
 	dateTime := int64(data["date_time"].(float64))
 	transactionID := data["transaction_id"]
-	fmt.Printf("handleClick date_time %d transaction_id %s\n", dateTime, transactionID)
 
 	_, err := w.db.Exec(fmt.Sprintf("INSERT INTO EVENTS (type, date_time, transaction_id) VALUES ($1, $2, $3)"), Completion, time.Unix(0, dateTime*int64(time.Millisecond)), transactionID)
 	if err != nil {
@@ -161,8 +160,6 @@ func (w Worker) handleImpression(data map[string]interface{}) {
 	transactionID := data["transaction_id"]
 	adType := data["ad_type"]
 	userID := data["user_id"]
-	fmt.Printf("handleClick date_time %d transaction_id %s ad_type %s user_id %s\n", dateTime, transactionID, adType, userID)
-
 	_, err := w.db.Exec(fmt.Sprintf("INSERT INTO EVENTS (type, date_time, transaction_id, ad_type, user_id) VALUES ($1, $2, $3, $4, $5)"), Impression, time.Unix(0, dateTime*int64(time.Millisecond)), transactionID, adType, userID)
 	if err != nil {
 		fmt.Printf("DB error: %s\n", err)
