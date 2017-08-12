@@ -20,8 +20,8 @@ Following parameters, cab be changed in Worker.go file
 1. host (default "localhost")
 2. port (default 5432)
 3. user (default "postgres")
-4. password = (default "postgres")
-5. dbname   = (default "anoiio")
+4. password (default "postgres")
+5. dbname (default "anoiio")
 
 
 Required table can be created using /db/init.sql script
