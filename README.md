@@ -2,7 +2,7 @@
 
 The purpose of this application is a case study of implementing event logging service in go. <br />
 
-EventService listens for POST http requests on localhost:8080/log
+EventService listens for HTTP POST requests on localhost:8080/log
 
 ### Setup
 
