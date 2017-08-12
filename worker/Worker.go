@@ -13,10 +13,11 @@ import (
 // EventType - a type for event type representation
 type EventType string
 
-// evalable event types
+// evalable event constants, db config
 const (
-	TypeKey    string    = "type"
-	PayloadKey string    = "payload"
+	TypeKey    string = "type"
+	PayloadKey string = "payload"
+
 	Impression EventType = "Impression"
 	Click      EventType = "Click"
 	Completion EventType = "Completion"
@@ -44,7 +45,6 @@ func ValidateEventType(eventTypeStr string) (EventType, error) {
 	default:
 		return EventType(""), errors.New("Not supported event type: " + eventTypeStr)
 	}
-
 }
 
 // LogEvent - event to be logged
@@ -72,7 +72,7 @@ func NewWorker(workerPool chan chan LogEvent) Worker {
 	}
 }
 
-// Start starts Worker processing in new goroutine
+// Start - opens db connection, starts Worker processing in new goroutine
 func (w Worker) Start() {
 
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s "+
