@@ -2,6 +2,8 @@
 
 The purpose of this application is a case study of implementing event logging service in go. <br />
 
+Design and code based on this post: [Handling 1 Million Requests per Minute with Go](http://marcio.io/2015/07/handling-1-million-requests-per-minute-with-golang/) <br />
+
 EventService listens for HTTP POST requests on localhost:8080/log
 
 ### Setup
